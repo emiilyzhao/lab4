@@ -120,7 +120,8 @@ int main(void)
  
   HAL_TIM_Base_Start(&htim6);
 
-  HAL_StatusTypeDef s = HAL_DAC_Start_DMA(&hdac1, DAC_CHANNEL_1, sine_table, N_SAMPLES, DAC_ALIGN_12B_R);
+  // DMA feeds the table to the DAC on every TIM6 trigger, looping (circular mode)
+  HAL_DAC_Start_DMA(&hdac1, DAC_CHANNEL_1, sine_table, N_SAMPLES, DAC_ALIGN_12B_R);
 
   /* USER CODE END 2 */
 
