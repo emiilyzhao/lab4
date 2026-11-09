@@ -114,18 +114,14 @@ int main(void)
   MX_TIM6_Init();
   /* USER CODE BEGIN 2 */
 
-  printf("\r\n1: init done\r\n");
-
   for (int i = 0; i < N_SAMPLES; i++) {
       sine_table[i] = (uint32_t)(2048 + 2047 * sinf(2.0f * 3.14159265f * i / N_SAMPLES));
   }
-  printf("2: table built\r\n");
-
+ 
   HAL_TIM_Base_Start(&htim6);
-  printf("3: timer started\r\n");
 
   HAL_StatusTypeDef s = HAL_DAC_Start_DMA(&hdac1, DAC_CHANNEL_1, sine_table, N_SAMPLES, DAC_ALIGN_12B_R);
-  printf("4: DAC DMA start returned %d (0 = OK)\r\n", (int)s);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
