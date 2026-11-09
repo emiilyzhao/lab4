@@ -1,4 +1,4 @@
-# ee186_lab3
+# ee186_lab4
 
 ## ADC
 
@@ -48,6 +48,6 @@ Sawtooth waves produce all harmonics (2f, 3f, ect) at 1/n amplitude, and sounds 
 However, these all share the same pitch because of their shared fundamental frequency.
 
 We need a capacitor to block the DC voltage and only pass AC voltage. The capacitor
-acts as a high-ass filter so that only the audio signal reaches the speaker.
+acts as a high-pass filter so that only the audio signal reaches the speaker.
 
 
