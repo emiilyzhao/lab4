@@ -31,7 +31,7 @@ Alternatively, if we connect the LDR between the pin and Gnd, the pin would floa
 because we lack the resistor to pull down to ground.
 
 
-# DAC
+## DAC
 
 If B = 9 and we use 12-bit output DAC mode that provides the best resolution:  
 V_out = (B/2^n) * V_ref = (9/4096) * V_ref = .0022 * V_ref
