@@ -114,14 +114,18 @@ int main(void)
   MX_TIM6_Init();
   /* USER CODE BEGIN 2 */
 
-  // build one cycle of a sine wave: centered at 2048, amplitude 2047 (full 0..4095 range)
+  printf("\r\n1: init done\r\n");
+
   for (int i = 0; i < N_SAMPLES; i++) {
       sine_table[i] = (uint32_t)(2048 + 2047 * sinf(2.0f * 3.14159265f * i / N_SAMPLES));
   }
+  printf("2: table built\r\n");
 
-  HAL_TIM_Base_Start(&htim6);                                                   // start the trigger clock
-  HAL_DAC_Start_DMA(&hdac1, DAC_CHANNEL_1, sine_table, N_SAMPLES, DAC_ALIGN_12B_R);  // DMA feeds the DAC
-  printf("Sine wave running at ~262 Hz\r\n");
+  HAL_TIM_Base_Start(&htim6);
+  printf("3: timer started\r\n");
+
+  HAL_StatusTypeDef s = HAL_DAC_Start_DMA(&hdac1, DAC_CHANNEL_1, sine_table, N_SAMPLES, DAC_ALIGN_12B_R);
+  printf("4: DAC DMA start returned %d (0 = OK)\r\n", (int)s);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -356,7 +360,7 @@ static void MX_TIM6_Init(void)
   htim6.Init.Prescaler = 0;
   htim6.Init.CounterMode = TIM_COUNTERMODE_UP;
   htim6.Init.Period = 1220;
-  htim6.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  htim6.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
   if (HAL_TIM_Base_Init(&htim6) != HAL_OK)
   {
     Error_Handler();
