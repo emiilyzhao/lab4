@@ -30,6 +30,19 @@ resistance so there would be no significant voltage drop across LDR.
 Alternatively, if we connect the LDR between the pin and Gnd, the pin would float
 because we lack the resistor to pull down to ground.
 
+LUX Measurements
+
+| LUX | Header 2 | Header 3 |
+| 100 | 2960 | 2383 |
+| 200 | 2300 | 2580 | 
+| 300 | 3375 | 2717 | 
+| 400 | 3480 | 2815 | 
+| 500 | 3600 | 2890 | 
+| 600 | 3620 | 2900 | 
+| 700 | 3650 | 2930 | 
+| 800 | 3680 | 2970 | 
+| 900 | 3720 | 2970 | 
+| 1000 | 3720 | 3000 | 
 
 ## DAC
 
