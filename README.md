@@ -32,7 +32,7 @@ because we lack the resistor to pull down to ground.
 
 LUX Measurements
 
-| LUX | Header 2 | Header 3 |
+| LUX | ADC | V (mV) |
 | 100 | 2960 | 2383 |
 | 200 | 2300 | 2580 | 
 | 300 | 3375 | 2717 | 
